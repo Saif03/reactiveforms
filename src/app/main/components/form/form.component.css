@@ -1,0 +1,21 @@
+#add {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 2;
+}
+
+.mark-row {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+  align-items: baseline;
+}
+
+div>*{
+    margin-left: 40px;
+}
+
+md-radio-button{
+    margin-left: 10px;
+}

@@ -1,0 +1,38 @@
+<button md-fab id="add" type="button" color="primary" (click)="addSubject()">
+  <md-icon>add</md-icon>
+</button>
+<form [formGroup]="studentForm" (ngSubmit)="submit()">
+  <ng-container formArrayName="marks">
+    <div class="mark-row" *ngFor="let mark of marks.controls; let i=index" [formGroupName]="i">
+
+      <md-input-container>
+        <input mdInput placeholder="Total Marks" formControlName="total">
+      </md-input-container>
+
+      <md-input-container>
+        <input mdInput placeholder="Obtained Marks" formControlName="obtained">
+      </md-input-container>
+
+      <md-select placeholder="Subject" formControlName="subject">
+        <md-option value="OOP">OOP</md-option>
+        <md-option value="DSA">DSA</md-option>
+        <md-option value="AOA">AOA</md-option>
+        <md-option value="DBS">DBS</md-option>
+      </md-select>
+
+      <md-radio-group formControlName="genre">
+        <md-radio-button value="theory">Theory</md-radio-button>
+        <md-radio-button value="practical">Practical</md-radio-button>
+      </md-radio-group>
+
+      <md-checkbox color=primary formControlName="pass">Pass</md-checkbox>
+
+      <a (click)="remove(i)">
+        <md-icon>clear</md-icon>
+      </a>
+    </div>
+  </ng-container>
+  <button md-button type="submit" [disabled]="studentForm.pristine">Submit</button>
+</form>
+
+<p> {{marks.value | json}}</p>
